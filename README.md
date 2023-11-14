@@ -17,8 +17,8 @@ First, clone the repository to your local machine:
 git clone https://github.com/Wahaha-code/face_landmark.git
 cd face_landmark
 ```
-[checkpoint](https://pan.baidu.com/s/1hnPKfChalncGIb_6wq2NDQ?pwd=waie) (Password: waie)
-
+[checkpoints](https://pan.baidu.com/s/1hnPKfChalncGIb_6wq2NDQ?pwd=waie) (Password: waie)
+You need to create a folder called checkpoints and download the weights file.
 ## Usage
 
 You can run the script `main.py` with several options:
