@@ -153,13 +153,13 @@ def detect(
 
         # Apply NMS
         pred = non_max_suppression_face(pred, conf_thres, iou_thres)
-        print( 'face detected')
+        print(len(pred[0]), 'face' if len(pred[0]) == 1 else 'faces')
 
         # Process detections
         for i, det in enumerate(pred):  # detections per image
             if exit_flag:
                 break
-            
+
             if webcam:  # batch_size >= 1
                 p, im0, frame = path[i], im0s[i].copy(), dataset.count
             else:
@@ -225,10 +225,14 @@ def detect(
                     try:
                         vid_writer[i].write(im0)
                         result = xyxy + landmarks
-                        landmarks_dict[frame_counter] = result #将face_landmark存在字典
+                        if len(det) == 0:
+                            landmarks_dict[frame_counter] = None
+                        else:
+                            landmarks_dict[frame_counter] = result #将face_landmark存在字典
                         frame_counter+=1
                     except Exception as e:
-                        print(e)
+                        landmarks_dict[frame_counter] = None
+                        frame_counter+=1
     
     if view_img:
         cv2.destroyAllWindows()
