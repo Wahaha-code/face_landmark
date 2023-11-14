@@ -39,6 +39,7 @@ python main.py --weights checkpoints\detface.pt --source 0 --img-size 640 --proj
 
 This will run the script with the default options, using the webcam as the source and saving the results to 'runs/detect/exp'.
 
+:star: Use 'Q' or 'q' to exit the program.
 ## License
 
 This project is licensed under the terms of the CAIR license.
