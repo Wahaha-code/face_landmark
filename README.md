@@ -15,7 +15,7 @@ First, clone the repository to your local machine:
 
 ```bash
 git clone https://github.com/Wahaha-code/face_landmark.git
-cd main.py
+cd face_landmark
 ```
 
 ## Usage
