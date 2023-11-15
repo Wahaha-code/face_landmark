@@ -157,6 +157,8 @@ def detect(
 
         # Process detections
         for i, det in enumerate(pred):  # detections per image
+            xyxy = [0,0,0,0]
+            landmarks = [0,0,0,0,0,0,0,0,0,0]
             if exit_flag:
                 break
 
@@ -225,14 +227,10 @@ def detect(
                     try:
                         vid_writer[i].write(im0)
                         result = xyxy + landmarks
-                        if len(det) == 0:
-                            landmarks_dict[frame_counter] = None
-                        else:
-                            landmarks_dict[frame_counter] = result #将face_landmark存在字典
+                        landmarks_dict[frame_counter] = result #将face_landmark存在字典
                         frame_counter+=1
                     except Exception as e:
-                        landmarks_dict[frame_counter] = None
-                        frame_counter+=1
+                        print(e)
     
     if view_img:
         cv2.destroyAllWindows()
